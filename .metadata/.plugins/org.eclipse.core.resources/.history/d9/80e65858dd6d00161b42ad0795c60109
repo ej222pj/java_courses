@@ -1,0 +1,15 @@
+package ej222pj_assign1;
+
+import java.util.Scanner;
+
+public class Backwards {
+	public static void main(String args[]){
+		Scanner scannerInput = new Scanner(System.in);
+		String LineToReverse = scannerInput.nextLine();
+		
+		scannerInput.close();
+		
+		StringBuilder ReversedLine = new StringBuilder(LineToReverse).reverse();
+		System.out.print("BackWards: " + ReversedLine);
+	}
+}

@@ -1,0 +1,25 @@
+package ej222pj_assign1;
+
+import java.util.Scanner;
+
+public class LargestK {
+	public static void main(String args[]){
+		//Open a scanner to scan for an input
+		Scanner scannerInput = new Scanner(System.in);
+		//Save the line to reverse
+		int N = Integer.parseInt(scannerInput.nextLine());
+		//Close the scanner
+		scannerInput.close();
+		int sum = 0;
+		for(int i = 0; i <= N; i+=2){
+            
+			System.out.println(i);
+            if(sum >= N)
+            {
+            	System.out.println("K = " + i);
+            	break;
+            }
+            sum += i;
+       }
+	}
+}
