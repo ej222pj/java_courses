@@ -1,0 +1,24 @@
+/**
+ * 
+ */
+package ej222pj_assign1;
+
+/**
+ * 2DV600
+ * ej222pj_assign1
+ * CountDigits.java
+ * @author Eric
+ * 30 aug 2016
+ * 
+ */
+public class CountDigits {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

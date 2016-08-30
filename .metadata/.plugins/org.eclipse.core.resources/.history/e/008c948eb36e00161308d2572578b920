@@ -1,0 +1,26 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj_assign1
+ * 
+ * @file_name CountDigits.java
+ */
+package ej222pj_assign1;
+
+/**
+ * @author Eric
+ *
+ * @date 30 aug 2016 : @time 15:02:08
+ *
+ */
+public class CountDigits {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,26 @@
+package ej222pj_assign1;
+
+import java.util.Scanner;
+
+public class Backwards {
+	public static void main(String args[]){
+	
+		while(true){
+			System.out.print("Type a line of text: ");
+			
+			//Open a scanner to scan for an input
+			Scanner ScannerInput = new Scanner(System.in);
+			//Save the line to reverse
+			String LineToReverse = ScannerInput.nextLine();
+			//Reverse the inputed line
+			String ReversedLine = new StringBuilder(LineToReverse).reverse().toString();
+			
+			if(ReversedLine.equals("exit")){
+				break;
+			}
+			
+			//Print the reversed line
+			System.out.println("Backwards: " + ReversedLine);
+		}
+	}
+}
