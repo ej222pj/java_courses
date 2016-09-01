@@ -1,0 +1,26 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj_assign1
+ * 
+ * @file_name CountChars.java
+ */
+package ej222pj_assign1;
+
+/**
+ * @author Eric
+ *
+ * @date 1 sep 2016 : @time 16:05:57
+ *
+ */
+public class CountChars {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

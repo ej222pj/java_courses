@@ -1,0 +1,46 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj_assign1
+ * 
+ * @file_name CountChars.java
+ */
+package ej222pj_assign1;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+/**
+ * @author Eric
+ *
+ * @date 1 sep 2016 : @time 16:05:57
+ *
+ */
+public class CountChars {
+
+	public static void main(String[] args) {
+		Scanner scannerFile = null;
+
+        try {
+            scannerFile = new Scanner(new File("file"));
+        } catch (FileNotFoundException e) {
+        }
+
+        int starNumber = 0; // number of *'s
+
+        while (scannerFile.hasNext()) {
+            String character = scannerFile.next();
+            int index =0;
+            char star = '*';
+            while(index<character.length()) {
+
+                if(character.charAt(index)==star){
+                    starNumber++;
+                }
+                index++;
+            }
+        }
+        System.out.println(starNumber);
+    }
+}
