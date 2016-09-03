@@ -7,8 +7,11 @@
  */
 package ej222pj_assign1;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -19,28 +22,36 @@ import java.util.Scanner;
  */
 public class CountChars {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException, IOException {
 		Scanner scannerFile = null;
-
-        try {
-            scannerFile = new Scanner(new File("CountCharsTxt.txt"));
-        } catch (FileNotFoundException e) {
-        }
-
-        int starNumber = 0; // number of *'s
-
-        while (scannerFile.hasNext()) {
-            String character = scannerFile.next();
-            int index =0;
-            char star = '*';
-            while(index<character.length()) {
-
-                if(character.charAt(index)==star){
-                    starNumber++;
-                }
-                index++;
+		String everything;
+		int upperCase = 0;
+		int lowerCase = 0;
+		int whitespace = 0;
+		int otherChar = 0; 
+		int numbers = 0;
+		
+        try(BufferedReader br = new BufferedReader(new FileReader(args[0].toString()))) {
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+            
+            while (line != null) {
+                sb.append(line);
+                sb.append(System.lineSeparator());
+                line = br.readLine();
+                for (int i = 0; i < sb.length(); i++) {
+		            // Check for uppercase letters.
+		    	    if (Character.isUpperCase(line.charAt(i))){ 
+		    	    	upperCase++;
+		    	    }
+		    	    // Check for lowercase letters.
+		    	    if (Character.isLowerCase(line.charAt(i))){
+		    	    	lowerCase++;
+		    	    }
+		    	}
             }
+            everything = sb.toString();
         }
-        System.out.println(starNumber);
+        System.out.println(lowerCase);
     }
 }
