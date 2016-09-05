@@ -8,11 +8,9 @@
 package ej222pj_assign1;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
 
 /**
  * @author Eric
@@ -23,35 +21,48 @@ import java.util.Scanner;
 public class CountChars {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
-		Scanner scannerFile = null;
-		String everything;
 		int upperCase = 0;
 		int lowerCase = 0;
 		int whitespace = 0;
-		int otherChar = 0; 
 		int numbers = 0;
+		int otherChar = 0; 
+		String line;
+		String allLines = "";
 		
         try(BufferedReader br = new BufferedReader(new FileReader(args[0].toString()))) {
-            StringBuilder sb = new StringBuilder();
-            String line = br.readLine();
             
-            while (line != null) {
-                sb.append(line);
-                sb.append(System.lineSeparator());
-                line = br.readLine();
-                for (int i = 0; i < sb.length(); i++) {
+            while ((line = br.readLine()) != null) {
+            	allLines += line;
+            }
+            
+            char[] chars = allLines.toCharArray();
+                for (int i = 0; i < chars.length; i++) {
 		            // Check for uppercase letters.
-		    	    if (Character.isUpperCase(line.charAt(i))){ 
+		    	    if (Character.isUpperCase(chars[i])){ 
 		    	    	upperCase++;
 		    	    }
 		    	    // Check for lowercase letters.
-		    	    if (Character.isLowerCase(line.charAt(i))){
+		    	    else if (Character.isLowerCase(chars[i])){
 		    	    	lowerCase++;
 		    	    }
+		    	    // Check for whitespaces.
+		    	    else if (Character.isWhitespace(chars[i])){
+		    	    	whitespace++;
+		    	    }
+		    	    // Check for digits.
+		    	    else if (Character.isDigit(chars[i])){
+		    	    	numbers++;
+		    	    }
+		    	    // Check for other chars.
+		    	    else{
+		    	    	otherChar++;
+		    	    }
 		    	}
-            }
-            everything = sb.toString();
         }
-        System.out.println(lowerCase);
+        System.out.println("Upper case letters: " + upperCase);
+        System.out.println("Lower case letters: " + lowerCase);
+        System.out.println("Whitespace" + whitespace);
+        System.out.println("Other characters: " + otherChar);
+        System.out.println("Numbers: " + numbers);
     }
 }

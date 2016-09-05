@@ -1,0 +1,63 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj_assign1
+ * 
+ * @file_name CountChars.java
+ */
+package ej222pj_assign1;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+/**
+ * @author Eric
+ *
+ * @date 1 sep 2016 : @time 16:05:57
+ *
+ */
+public class CountChars {
+
+	public static void main(String[] args) throws FileNotFoundException, IOException {
+		Scanner scannerFile = null;
+		String everything;
+		int upperCase = 0;
+		int lowerCase = 0;
+		int whitespace = 0;
+		int otherChar = 0; 
+		int numbers = 0;
+		String line;
+		String length = "";
+		
+        try(BufferedReader br = new BufferedReader(new FileReader(args[0].toString()))) {
+            StringBuilder sb = new StringBuilder();
+            //line = br.readLine();
+            
+            while ((line = br.readLine()) != null) {
+            	length += line;
+            }
+            char[] chars = length.toCharArray();
+            //while (br.) {
+                //sb.append(line);
+                //sb.append(System.lineSeparator());
+                //line = br.readLine();
+                for (int i = 0; i < chars.length; i++) {
+		            // Check for uppercase letters.
+		    	    if (Character.isUpperCase(chars[i])){ 
+		    	    	upperCase++;
+		    	    }
+		    	    // Check for lowercase letters.
+		    	    if (Character.isLowerCase(chars[i])){
+		    	    	lowerCase++;
+		    	    }
+		    	}
+            //}
+            everything = sb.toString();
+        }
+        System.out.println(length);
+    }
+}
