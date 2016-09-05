@@ -1,8 +1,0 @@
-package ej222pj_assign1;
-
-import java.util.Scanner;
-
-public class Backwards {
-	Scanner input = new Scanner(System.in);
-	String LineToReverse = input.nextLine();
-}

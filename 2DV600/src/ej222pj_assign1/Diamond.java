@@ -32,7 +32,7 @@ public class Diamond {
 		    	System.exit(0);
 		    }
 		} catch (NumberFormatException e) {
-			System.out.print("Can not parse! Exiting!");
+			System.err.print("Can not parse! Exiting!");
 			System.exit(0);
 		}
 		//Close the scanner

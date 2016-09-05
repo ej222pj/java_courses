@@ -1,0 +1,51 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj_assign1
+ * 
+ * @file_name ArraysMain.java
+ */
+package ej222pj_assign1;
+
+/**
+ * @author Eric
+ *
+ * @date 5 sep 2016 : @time 19:56:08
+ *
+ */
+public class ArraysMain {
+
+	public static void main(String[] args) {
+		int[] testArr = {5, 2, 4, 1, 3};
+        int[] subArr1 = {9, 77, 8};
+        int[] subArr2 = {1, 2, 3};
+        int[] difArr = {1,1,1,1,1};
+        System.out.println("Testing sum method...");
+        System.out.println(Arrays.sum(testArr));
+        System.out.println("\nTesting toString method...");
+        System.out.println(Arrays.toString(testArr));
+        System.out.println();
+        System.out.println("Testing addN method, adding 5...");
+        System.out.println(Arrays.toString(Arrays.addN(testArr, 5)));
+        System.out.println();
+        System.out.println("Testing reverse method...");
+        System.out.println(Arrays.toString(Arrays.reverse(testArr)));
+        System.out.println();
+        System.out.println("Testing replace method... replacing 6 with 77...");
+        Arrays.replaceAll(testArr, 6, 77);
+        System.out.println(Arrays.toString(testArr));
+        System.out.println("Testing sort method...");
+        System.out.println(Arrays.toString(Arrays.sort(testArr)));
+        System.out.println();
+        System.out.println("Testing has subsequence method...");
+        System.out.println("Array: " + Arrays.toString(testArr));
+        System.out.println("Subarray one: "+ Arrays.toString(subArr1));
+        System.out.println("Result: " + Arrays.hasSubsequence(testArr, subArr1));
+        System.out.println("Subarray two: "+ Arrays.toString(subArr2));
+        System.out.println("Result: "+Arrays.hasSubsequence(testArr, subArr2));
+        System.out.println();
+        System.out.println("Testing absDif method... sending in {1,1,1,1,1}");
+        System.out.println("Original values: " + Arrays.toString(testArr));
+        System.out.println(Arrays.toString(Arrays.absDif(testArr, difArr)));
+	}
+}
