@@ -1,0 +1,97 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj_assign1
+ * 
+ * @file_name Histogram.java
+ */
+package ej222pj_assign1;
+
+import java.io.File;
+import java.util.Scanner;
+
+/**
+ * @author Eric
+ *
+ * @date 5 sep 2016 : @time 21:53:11
+ *
+ */
+public class Histogram {
+
+	public static void main(String[] args) throws Exception{
+		int toTen = 0;
+        int toTwenty = 0;
+        int toThirty = 0;
+        int toFourty = 0;
+        int toFifty = 0;
+        int toSixty = 0;
+        int toSeventy = 0;
+        int toEighty = 0;
+        int toNinety = 0;
+        int toHundred = 0;
+        int toTwoHundred = 0;
+
+        try
+        {
+            String path = "";
+
+            if (args[0] != null)
+            {
+                path = args[0].toString();
+            }
+            else
+            {
+            	throw new Exception("No Path!");
+            }
+            File numbersFile = new File(path);
+            Scanner ScannerInput = new Scanner(numbersFile);
+
+            while(ScannerInput.hasNext())
+            {
+                if(ScannerInput.hasNextInt())
+                {
+                    int currentNumber = ScannerInput.nextInt();
+
+                    if(currentNumber >= 1 && currentNumber <= 200)
+                    {
+                        if(currentNumber <= 10) toTen++;
+                        else if(currentNumber <= 20) toTwenty++;
+                        else if(currentNumber <= 30) toThirty++;
+                        else if(currentNumber <= 40) toFourty++;
+                        else if(currentNumber <= 50) toFifty++;
+                        else if(currentNumber <= 60) toSixty++;
+                        else if(currentNumber <= 70) toSeventy++;
+                        else if(currentNumber <= 80) toEighty++;
+                        else if(currentNumber <= 90) toNinety++;
+                        else if(currentNumber <= 100) toHundred++;
+                        else if(currentNumber <= 200) toTwoHundred++;
+                    }
+                }
+                else
+                {
+                	ScannerInput.next();
+                }
+            }
+            ScannerInput.close();
+            for(int i = 0; i < toTen; i++){
+            	String result = String.format("%1$05d", "*", i + 10);
+            	System.out.println(result);
+            }
+            System.out.println("1-10: " + toTen);
+            System.out.println("11-20: " + toTwenty);
+            System.out.println("21-30: " + toThirty);
+            System.out.println("31-40: " + toFourty);
+            System.out.println("41-50: " + toFifty);
+            System.out.println("51-60: " + toSixty);
+            System.out.println("61-70: " + toSeventy);
+            System.out.println("71-80: " + toEighty);
+            System.out.println("81-90: " + toNinety);
+            System.out.println("91-100: " + toHundred);
+            System.out.println("101-200: " + toTwoHundred);
+        }
+        catch(Exception e)
+        {
+            System.err.println(e.getMessage());
+        }
+	}
+}

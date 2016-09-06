@@ -61,7 +61,7 @@ public class CountChars {
         }
         System.out.println("Upper case letters: " + upperCase);
         System.out.println("Lower case letters: " + lowerCase);
-        System.out.println("Whitespace" + whitespace);
+        System.out.println("Whitespace " + whitespace);
         System.out.println("Other characters: " + otherChar);
         System.out.println("Numbers: " + numbers);
     }
