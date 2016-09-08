@@ -21,73 +21,60 @@ public class Card {
     private int cardValue;
     private int suitValue;
 
-    public enum Suit
-    {
-        Clubs(1), Diamonds(2), Hearts(3), Spades(4);
+    public enum Suit{
+        Clubs(1), Spades(2), Diamonds(3), Hearts(4) ;
 
         private int sValue;
 
         private static Map<Integer, Suit> map = new HashMap<Integer, Suit>();
 
-        static
-        {
-            for(Suit sVal : Suit.values())
-            {
-                map.put(sVal.sValue, sVal);
+        static{
+            for(Suit suitVal : Suit.values()){
+                map.put(suitVal.sValue, suitVal);
             }
         }
 
-        private Suit(final int val)
-        {
-            sValue = val;
+        private Suit(final int suitValue){
+            sValue = suitValue;
         }
 
-        public static Suit valueOf(int value)
-        {
+        public static Suit valueOf(int value){
             return map.get(value);
         }
     };
 
-    public enum Value
-    {
+    public enum Value{
         Ace(1), Two(2), Three(3), Four(4), Five(5), Six(6), Seven(7), Eight(8), Nine(9), Ten(10), Jack(11), Queen(12), King(13);
 
         private int value;
 
         private static Map<Integer, Value> map = new HashMap<Integer, Value>();
 
-        static
-        {
-            for(Value val : Value.values())
-            {
+        static {
+            for(Value val : Value.values()){
                 map.put(val.value, val);
             }
         }
 
-        private Value(final int val)
-        {
+        private Value(final int val){
             value = val;
         }
 
-        public static Value valueOf(int value)
-        {
+        public static Value valueOf(int value){
             return map.get(value);
         }
     };
 
-    public Card(int suitValue, int cardValue)
-    {
+    public Card(int suitValue, int cardValue){
         this.suitValue = suitValue;
         this.cardValue = cardValue;
     }
-
-    public int getSuitValue()
-    {
+    
+    public int getSuitValue(){
         return this.suitValue;
     }
 
-    public int getCardValue()
-    {
+    public int getCardValue(){
         return this.cardValue;
     }
 }

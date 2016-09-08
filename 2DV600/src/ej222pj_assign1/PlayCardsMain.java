@@ -17,15 +17,17 @@ public class PlayCardsMain {
 
     public static void main(String args[])
     {
-        Deck d = new Deck();
-        d.shuffle();
-        for(int i = 0; i < 12; i++)
+        Deck deck = new Deck();
+        deck.shuffle();
+        for(int i = 0; i < 10; i++)
         {
-            System.out.println("Dealing card...");
-            Card c = d.handsOutNextCard();
-            System.out.println(Card.Value.valueOf(c.getCardValue()) + " of " + Card.Suit.valueOf(c.getSuitValue()));
-            System.out.println("Cards left: " + d.deckSize());
+            Card card = deck.handsOutNextCard();
+            if(card == null){
+            	break;
+            }
+            System.out.println("New Card: " + Card.Value.valueOf(card.getCardValue()) + " of " + Card.Suit.valueOf(card.getSuitValue()));
+            System.out.println("Cards left: " + deck.deckSize());
         }
-
+        System.out.println("Done!");
     }
 }

@@ -1,0 +1,13 @@
+package ej222pj_assign1;
+
+public class Play123Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

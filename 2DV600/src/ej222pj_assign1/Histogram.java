@@ -31,29 +31,23 @@ public class Histogram {
         int toHundred = 0;
         int toTwoHundred = 0;
 
-        try
-        {
+        try{
             String path = "";
 
-            if (args[0] != null)
-            {
+            if (args[0] != null){
                 path = args[0].toString();
             }
-            else
-            {
+            else{
             	throw new Exception("No Path!");
             }
             File numbersFile = new File(path);
             Scanner ScannerInput = new Scanner(numbersFile);
 
-            while(ScannerInput.hasNext())
-            {
-                if(ScannerInput.hasNextInt())
-                {
+            while(ScannerInput.hasNext()){
+                if(ScannerInput.hasNextInt()){
                     int currentNumber = ScannerInput.nextInt();
 
-                    if(currentNumber >= 1 && currentNumber <= 200)
-                    {
+                    if(currentNumber >= 1 && currentNumber <= 200){
                         if(currentNumber <= 10) toTen++;
                         else if(currentNumber <= 20) toTwenty++;
                         else if(currentNumber <= 30) toThirty++;
@@ -67,8 +61,7 @@ public class Histogram {
                         else if(currentNumber <= 200) toTwoHundred++;
                     }
                 }
-                else
-                {
+                else{
                 	ScannerInput.next();
                 }
             }
@@ -85,8 +78,7 @@ public class Histogram {
             printOut("91-100  | ", toHundred);
             printOut("101-200 | ", toTwoHundred);
         }
-        catch(Exception e)
-        {
+        catch(Exception e){
             System.err.println(e.getMessage());
         }
 	}

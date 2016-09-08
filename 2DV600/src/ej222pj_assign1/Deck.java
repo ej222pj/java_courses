@@ -21,41 +21,36 @@ public class Deck {
 	
     private static List<Card> deck = new ArrayList<Card>(52);
 
-    public Deck()
-    {
-        for(int k = 1; k <= 4; k++)
-        {
-            for (int i = 1; i <= 13; i++)
-            {
-                deck.add(new Card(k, i));
+    public Deck() {
+        for(int i = 1; i <= 4; i++){
+            for (int j = 1; j <= 13; j++){
+                deck.add(new Card(i, j));
             }
         }
     }
 
-    public List<Card> getDeck()
-    {
+    public List<Card> getDeck(){
         return deck;
     }
 
-    public void shuffle()
-    {
-        if(Deck.deck.size() < 52)
-        {
-            System.out.println("No");
+    public void shuffle(){
+        if(Deck.deck.size() < 52){
+            System.out.println("Can't shuffle!");
             System.exit(0);
         }
         Collections.shuffle(Deck.deck);
     }
 
-    public Card handsOutNextCard()
-    {
+    public Card handsOutNextCard(){
+    	if(deck.isEmpty()){
+    		return null;
+    	}
         Card selectedCard = deck.get(0);
         deck.remove(0);
         return selectedCard;
     }
 
-    public int deckSize()
-    {
+    public int deckSize(){
         return deck.size();
     }
 }
