@@ -7,6 +7,8 @@
  */
 package ej222pj_assign1;
 
+import java.text.DecimalFormat;
+
 /**
  * @author Eric
  *
@@ -16,11 +18,32 @@ package ej222pj_assign1;
 public class Play123Main {
 
 	public static void main(String[] args) {
+		int wins = 0;
+		int losses = 0;
 		
+		for(int i = 0; i < 10000; i++){
+			Deck deck = new Deck();
+		    deck.shuffle(); 
+			if(play123(1, deck)) wins++;
+			else losses++;
+		}
+	
+		System.out.println("Wins: " + wins);
+		System.out.println("Losses: " + losses);
+		System.out.println("Winning probability: " + 
+		new DecimalFormat("#.###").format(((double)wins / (double)losses) * 100) + "%");
 	}
 	
-	public static boolean play123(){
+	static boolean play123(int counter, Deck deck){
+		for(int i = 0; i < 52; i++){
+			if(counter > 3){
+				counter = 1;
+			}
+			Card card = deck.handOutNextCard();
+			
+			if(card.getCardValue() == counter) return false;
+			counter++;
+		}	
 		return true;
 	}
-
 }

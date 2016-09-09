@@ -41,7 +41,7 @@ public class Deck {
         Collections.shuffle(Deck.deck);
     }
 
-    public Card handsOutNextCard(){
+    public Card handOutNextCard(){
     	if(deck.isEmpty()){
     		return null;
     	}

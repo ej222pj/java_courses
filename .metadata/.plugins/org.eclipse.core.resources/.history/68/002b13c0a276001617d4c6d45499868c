@@ -1,0 +1,138 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj_assign1
+ * 
+ * @file_name QueueMain.java
+ */
+package ej222pj_assign1;
+
+import java.util.Iterator;
+
+/**
+ * @author Eric
+ *
+ * @date 9 sep 2016 : @time 17:26:38
+ *
+ */
+public class QueueMain {
+	public static void main(String[] args){
+        Queue queue = new Queue();
+
+        if (queue.isEmpty()){
+            System.out.println("List is Empty");
+        }
+        
+        // Test IndexOutOfBounds on function first()
+        try{
+            Object test = queue.first();
+        }catch(IndexOutOfBoundsException e){
+            System.out.println(e.getMessage());
+        }
+
+        // Test IndexOutOfBounds on function last()
+        try{
+            Object test = queue.last();
+        }catch(IndexOutOfBoundsException e){
+            System.out.println(e.getMessage());
+        }
+
+       
+
+        // Test IndexOutOfBounds on function dequeue()
+        try {
+            Object test = queue.dequeue();
+        }catch(IndexOutOfBoundsException e){
+            System.out.println(e.getMessage());
+        }
+
+        // Test list size, should be 0
+        System.out.println("list size = " + queue.size());
+        // Adding a new object
+        queue.enqueue(new TestNode(1337, "Elite"));
+        // Test list size, should be 1
+        System.out.println("list size = " + queue.size());
+        // Adding another object
+        queue.enqueue(new TestNode(12, "Kaffe"));
+        // Test list size, should be 2
+        System.out.println("list size = " + queue.size());
+        //Adding another object
+        queue.enqueue(new TestNode(1991, "Årtal"));
+        // Test list size, should be 3
+        System.out.println("list size = " + queue.size());
+
+        // Test if list is not empty
+        if (!queue.isEmpty()){
+            System.out.println("List is not empty");
+        }
+
+        // Test last object in list, should be
+        // TestNode.value = 1991 - TestNode.name = Årtal
+        Object test = queue.last();
+        System.out.println("Last object...");
+        TestNode test123 = ((TestNode) test);
+        System.out.println(test123.value);
+        System.out.println(test123.name);
+
+        // Test first object in list, should be
+        // TestNode.value = 1337 - TestNode.name = Elite
+        Object test1 = queue.first();
+        System.out.println("First object..");
+        test123 = ((TestNode) test1);
+        System.out.println(test123.value);
+        System.out.println(test123.name);
+
+        // Test if the object contains in the list, should be true
+        if (queue.contains(test123)){
+            System.out.println("Object contains in the list!");
+        }
+
+        // Test if the object contains in the list, should be false
+        TestNode containTest = new TestNode(1, "hej");
+        if (!queue.contains(containTest)){
+            System.out.println("Object doesnt exist in the list!");
+        }
+
+        Iterator it = queue.iterator();
+
+        // Try to iterate through list with listIterator
+        System.out.println("Iterate through list with 'Homemade' iterator");
+        while(it.hasNext()){
+            Object testIterator = it.next();
+            TestNode nodeIterator = ((TestNode) testIterator);
+            System.out.println(nodeIterator.name + " - " + nodeIterator.value);
+        }
+
+        // Test dequeue function
+        // Should return and remove first object
+        // TestNode.value - 1337, TestNode.name - Elite
+        System.out.println("----------------");
+        System.out.println("Dequeue");
+        System.out.println("list size = " + queue.size());
+        Object removeNode = queue.dequeue();
+        TestNode testNode123 = ((TestNode) removeNode);
+        System.out.println(testNode123.value);
+        System.out.println(testNode123.name);
+        System.out.println("list size = " + queue.size());
+
+        // Try to iterate through list with listIterator
+        it = queue.iterator();
+        System.out.println("------------------");
+        System.out.println("Iterate through list with 'Homemade' iterator");
+        while(it.hasNext()){
+            Object testIterator = it.next();
+            TestNode nodeIterator = ((TestNode) testIterator);
+            System.out.println(nodeIterator.name + " - " + nodeIterator.value);
+        }
+    }
+
+    private static class TestNode{
+        int value;
+        String name;
+
+        public TestNode(int v, String n){
+            this.value = v;
+            this.name = n;
+        }
+    }
+}

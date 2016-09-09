@@ -21,7 +21,7 @@ public class PlayCardsMain {
         deck.shuffle();
         for(int i = 0; i < 10; i++)
         {
-            Card card = deck.handsOutNextCard();
+            Card card = deck.handOutNextCard();
             if(card == null){
             	break;
             }
