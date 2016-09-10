@@ -22,20 +22,23 @@ public class Card {
     private int suitValue;
 
     public enum Suit{
-        Clubs(1), Spades(2), Diamonds(3), Hearts(4) ;
+        Clubs(1), 
+        Spades(2), 
+        Diamonds(3), 
+        Hearts(4) ;
 
-        private int sValue;
+        private int suitValue;
 
         private static Map<Integer, Suit> map = new HashMap<Integer, Suit>();
 
         static{
             for(Suit suitVal : Suit.values()){
-                map.put(suitVal.sValue, suitVal);
+                map.put(suitVal.suitValue, suitVal);
             }
         }
 
         private Suit(final int suitValue){
-            sValue = suitValue;
+        	this.suitValue = suitValue;
         }
 
         public static Suit valueOf(int value){
@@ -44,24 +47,36 @@ public class Card {
     };
 
     public enum Value{
-        Ace(1), Two(2), Three(3), Four(4), Five(5), Six(6), Seven(7), Eight(8), Nine(9), Ten(10), Jack(11), Queen(12), King(13);
+        Ace(1), 
+        Two(2), 
+        Three(3), 
+        Four(4), 
+        Five(5), 
+        Six(6), 
+        Seven(7), 
+        Eight(8), 
+        Nine(9), 
+        Ten(10), 
+        Jack(11), 
+        Queen(12), 
+        King(13);
 
-        private int value;
+        private int cardValue;
 
-        private static Map<Integer, Value> map = new HashMap<Integer, Value>();
+        private static Map<Integer, Value> valueMap = new HashMap<Integer, Value>();
 
         static {
-            for(Value val : Value.values()){
-                map.put(val.value, val);
+            for(Value value : Value.values()){
+            	valueMap.put(value.cardValue, value);
             }
         }
 
         private Value(final int val){
-            value = val;
+        	cardValue = val;
         }
 
         public static Value valueOf(int value){
-            return map.get(value);
+            return valueMap.get(value);
         }
     };
 

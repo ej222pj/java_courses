@@ -22,6 +22,7 @@ public class Deck {
     private static List<Card> deck = new ArrayList<Card>(52);
 
     public Deck() {
+    	deck.clear();
         for(int i = 1; i <= 4; i++){
             for (int j = 1; j <= 13; j++){
                 deck.add(new Card(i, j));
@@ -34,11 +35,13 @@ public class Deck {
     }
 
     public void shuffle(){
-        if(Deck.deck.size() < 52){
-            System.out.println("Can't shuffle!");
+        if(deckSize() == 52){
+        	Collections.shuffle(Deck.deck);
+        }
+        else {
+        	System.out.println("Can't shuffle!");
             System.exit(0);
         }
-        Collections.shuffle(Deck.deck);
     }
 
     public Card handOutNextCard(){

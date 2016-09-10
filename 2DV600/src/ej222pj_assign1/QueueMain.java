@@ -68,46 +68,22 @@ public class QueueMain {
         testNode = ((TestNode) lastObject);
         System.out.println(testNode.value + " " + testNode.name);        
 
-        Iterator<?> it = list.iterator();
-
-        // Try to iterate through list with listIterator
-        System.out.println("Iterate through list with 'Homemade' iterator");
-        while(it.hasNext()){
-            Object testIterator = it.next();
+        Iterator<?> iterator = list.iterator();
+        System.out.println("Iterate List");
+        while(iterator.hasNext()){
+            Object testIterator = iterator.next();
             TestNode nodeIterator = ((TestNode) testIterator);
             System.out.println(nodeIterator.name + " - " + nodeIterator.value);
-        }
-
-        // Test dequeue function
-        // Should return and remove first object
-        // TestNode.value - 1337, TestNode.name - Equeue
-        System.out.println("----------------");
-        System.out.println("Delist");
-        System.out.println("list size = " + list.size());
-        Object removeNode = list.dequeue();
-        TestNode testNode123 = ((TestNode) removeNode);
-        System.out.println(testNode123.value);
-        System.out.println(testNode123.name);
-        System.out.println("list size = " + list.size());
-
-        // Try to iterate through list with listIterator
-        it = list.iterator();
-        System.out.println("------------------");
-        System.out.println("Iterate through list with 'Homemade' iterator");
-        while(it.hasNext()){
-            Object testIterator = it.next();
-            TestNode nodeIterator = ((TestNode) testIterator);
-            System.out.println(nodeIterator.name + " - " + nodeIterator.value);
-        }
+        }        
     }
 
     private static class TestNode{
         int value;
         String name;
 
-        public TestNode(int v, String n){
-            this.value = v;
-            this.name = n;
+        public TestNode(int value, String name){
+            this.value = value;
+            this.name = name;
         }
     }
 }

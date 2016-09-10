@@ -25,8 +25,8 @@ public class PlayCardsMain {
             if(card == null){
             	break;
             }
-            System.out.println("New Card: " + Card.Value.valueOf(card.getCardValue()) + " of " + Card.Suit.valueOf(card.getSuitValue()));
-            System.out.println("Cards left: " + deck.deckSize());
+            System.out.println("Card: " + Card.Value.valueOf(card.getCardValue()) + " of " + Card.Suit.valueOf(card.getSuitValue()));
+            System.out.println("Cards in deck: " + deck.deckSize());
         }
         System.out.println("Done!");
     }
