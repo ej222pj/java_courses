@@ -1,0 +1,81 @@
+1. What is the Java Virtual Machine? What is Bytecode?
+Answer: JVA (Java Virtual Machine) is the program that "runs" all programs written in Java. 
+When a Java program is compiled it creates Bytecode. The JVA then interpreters the Bytecode.
+
+2. What is the Java Classpath?
+Answer: Classpath is a parameter in the JVA or the Java compiler that specifies the location of user-defined classes and packages.
+
+3. How do you compile and run your java program without the help of an Integrated Development Environment (IDE) (e.g., an IDE like Eclipse)?
+Answer: When you have Java downloaded on the computer, it's possible to run a Java program by using the command line by typing:
+"javac filename" example: javac HelloWorld.java. javac both compiles and runs the program.
+
+4. What is a JAR file?
+Answer: JAR stands for Java Archive and is a package file format aggregate many Java class files. 
+It also package together metadata and resources associated to the Java classes. 
+Everything is put together into 1 file, used to distribute application software or libraries on the Java platform.
+
+5. How do you declare the starting point of a Java application?
+Answer: The typical implementation the the starting point is "public static void main(String[])".
+The Java application launcher will always look for a "main" method to start the program.
+
+6. What is a package? Why is important to declare classes inside packages?
+Answer: Package is a grouping of related types providing access protection and name space management. 
+Packages are used to avoid naming conflicts and to control access and it makes types easier to find and use.
+
+7. What is an interface? Why is it important to not change them?
+Answer: An interface is a collection of abstract methods. A class implements an interface, 
+thereby inheriting the abstract methods of the interface. It may also contain constants, default methods, static methods, and nested types.
+
+Since the class using the interface needs to implement all the methods from the interface its important that the inteface does not change.
+If the interface changes the entire java program that is using the interface could break.
+
+8. Which visibility levels are available in Java? What is the default visibility for classes, methods, and fields?
+Answer: "Public", "Protected", "No Modifier"/"Package-Private" and "Private" exists in Java. 
+The default visibility is "No Modifier"/"Package-Private".
+
+9. In the context of Java, what is an Exception? And what is an Error?
+Answer: An Exception indicates conditions that a reasonable application might want to catch and the program is able to recover from.
+An Error indicates serious problems that a reasonable application should not try to catch and the program have no way of recover from an error.
+
+10. What happened if your program terminates with an OutOfMemoryError, or NoClassDefFoundError or NullPointerException?
+Answer: OutOfMemoryError: Throws when the JVA can't allocate an object because it is out of memory and no more memory could be made available by the garbage collector.
+NoClassDefFoundError: Throws when a class file is found when compiling but not when the program is running.
+NullPointerException: Throes when an application attempts to use null in a case where an object is required.
+
+11. How do you handle Exceptions in your program?
+Answer: With a "Try/Catch" statement that catches the thrown exception and handles it in some way. 
+Exception handling can vary, but most of the time the catch statement prints a error message and redirects.
+
+12. Why is it important to test your code/application/product, before you deliver it to your customer/boss/teacher?
+Answer: To make sure the code/application/product works properly and don't have any bugs. 
+It's almost impossible to remove all bugs, but a lot of bugs can be removed from testing.
+If the code/application/product will be used by a lost of users its important to do a stress test to check if many users can use the code/application/product at the same time.
+
+13. What is JavaDoc? How do you write documentation with it?
+Answer: JavaDoc is a documentation generator that generates API documentation in HTML format from java source code.
+It's used by typing comments in a correct format so that the generator later can read the comments and create documentation.
+It can be used like this: (The generator will take the code and comments below and create a HTML style page describing the Project/Class/Methods. 
+
+/**
+ * @author      Firstname Lastname <address @ example.com>
+ * @version     1.6                 (current version number of program)
+ * @since       1.2          (the version of the package this class was first added to)
+ */
+public class Test {
+    // class body
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 *
+	 * @param  variable Description text text text.          (3)
+	 * @return Description text text text.
+	 */
+	public int methodName (...) {
+	    // method body with a return statement
+	}
+}
