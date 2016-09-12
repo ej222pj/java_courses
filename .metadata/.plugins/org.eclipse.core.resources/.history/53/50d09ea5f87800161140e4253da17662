@@ -1,0 +1,66 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj_assign2
+ * 
+ * @file_name ArrayIntList.java
+ */
+package ej222pj_assign2;
+
+import java.util.Spliterator;
+import java.util.function.Consumer;
+
+import da1031.AbstractIntCollection;
+import da1031.IntList;
+
+/**
+ * @author Eric
+ *
+ * @date 12 sep 2016 : @time 16:35:35
+ *
+ */
+public class ArrayIntList extends AbstractIntCollection implements IntList {
+
+	@Override
+	public void forEach(Consumer<? super Integer> arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Spliterator<Integer> spliterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void add(int n) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addAt(int n, int index) throws IndexOutOfBoundsException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void remove(int index) throws IndexOutOfBoundsException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int get(int index) throws IndexOutOfBoundsException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int indexOf(int n) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}
