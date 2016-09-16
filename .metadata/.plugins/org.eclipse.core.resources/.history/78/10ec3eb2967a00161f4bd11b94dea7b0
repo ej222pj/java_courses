@@ -1,0 +1,30 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj_assign1.exercise_2
+ * 
+ * @file_name Vehicle.java
+ */
+package ej222pj_assign1.exercise_2;
+
+/**
+ * @author Eric
+ *
+ * @date 13 sep 2016 : @time 13:03:22
+ *
+ */
+public class Bicycle extends Vehicle {
+	 private final static int MAX_PASSENGERS = 1;
+
+	    public Bicycle(int p) {
+	        if (fitsVehicle(MAX_PASSENGERS, p)){
+	            this.fee = 40;
+	            this.feeForPassengers = 0;
+	            this.space = 0.2;
+	            this.passengers = p;
+	            this.type = "Bicycle";
+	        }else{
+	            System.err.println("To many people on the bike..");
+	        }
+	    }
+	}

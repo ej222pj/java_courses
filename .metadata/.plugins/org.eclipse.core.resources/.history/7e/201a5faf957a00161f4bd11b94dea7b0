@@ -1,0 +1,53 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj_assign1.exercise_2
+ * 
+ * @file_name Vehicle.java
+ */
+package ej222pj_assign1.exercise_2;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @author Eric
+ *
+ * @date 13 sep 2016 : @time 13:03:22
+ *
+ */
+public abstract class Vehicle {
+	protected String vehicleType;
+	protected int vehiclePrice;
+	protected double vehicleSpace;
+	protected int passengers;
+	protected int passengersTicketPrice;
+	
+
+    public int getAmountPassengers(){
+        return this.passengers;
+    }
+
+    public int getPassengersTicketPrice(){
+        return this.passengersTicketPrice;
+    }
+
+    public int getVehiclePrice(){
+        return this.vehiclePrice;
+    }
+
+    public double getVehicleSpace(){
+        return this.vehicleSpace;
+    }
+
+    public String getVehicleType(){
+        return this.vehicleType;
+    }
+    
+    protected boolean rightAmountOfPassengers(int aPassengers, int max){
+        if (aPassengers <= max){
+            return true;
+        }
+        return false;
+    }
+}

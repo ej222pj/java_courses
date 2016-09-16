@@ -1,0 +1,94 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj_assign1.exercise_2
+ * 
+ * @file_name Vehicle.java
+ */
+package ej222pj_assign1.exercise_2;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ * @author Eric
+ *
+ * @date 13 sep 2016 : @time 13:03:22
+ *
+ */
+public abstract class Vehicle {
+	protected double _passengerCost;
+	protected double _vehicleCost;
+	protected int _spaceRequired;
+	protected int _maxNumberOfPassengers;
+	protected boolean _hasEmbarked;
+	protected ArrayList<Passenger> _passengers;
+	
+	
+	protected Vehicle(double passengerCost, double vehicleCost, int spaceRequired,  int maxNumberOfPassengers, int numberOfPassengers) {
+		_passengerCost = passengerCost;
+		_vehicleCost = vehicleCost;
+		_spaceRequired = spaceRequired;
+		_maxNumberOfPassengers = maxNumberOfPassengers;
+		_hasEmbarked = false;
+		_passengers = new ArrayList<Passenger>(_maxNumberOfPassengers);
+		
+		//Add passenger object to passenger list
+		for (int i = 1; i <= numberOfPassengers;i++) {
+			_passengers.add(new Passenger(_passengerCost));
+		}
+	}
+	
+	public int getPassengerCount() {
+		return _passengers.size();
+	}
+	
+	public double getTotalCost() {
+		return _vehicleCost + _passengerCost * _passengers.size();
+	}
+	
+	public void embark() {
+		_hasEmbarked = true;
+	}
+	
+	public List<Passenger> getPassengers() {
+		return Collections.unmodifiableList(_passengers);
+	}
+	
+	public boolean hasEmbarked() {
+		return _hasEmbarked;
+	}
+	
+	
+	public void addPassenger(Passenger p) {
+		if (isFull()) {
+			throw new IndexOutOfBoundsException("The vehicle is full");
+		}
+		_passengers.add(p);
+	}
+	
+	public void removePassenger(int index) {
+		if (!isCorrectindex(index)) {
+			throw new IndexOutOfBoundsException(String.format("Index out of bounds. Upper: %d, Attempted: %d", getPassengerCount() - 1, index));
+		}
+		_passengers.remove(index);
+	}
+	
+	private boolean isFull() {
+		return _passengers.size() >= _maxNumberOfPassengers;
+	}
+	
+	private boolean isCorrectindex(int index) {
+		return index >= 0 && index < getPassengerCount();
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("Vehicle type: %s. \n" + 
+				"\tNo of passengers: %d.\n" + 
+				"\tMax number of passengers: %d\n" + 
+				"\tTotal cost: %.2f kr\n", 
+				getClass().getSimpleName(), getPassengerCount(), _maxNumberOfPassengers, getTotalCost());
+	}
+}

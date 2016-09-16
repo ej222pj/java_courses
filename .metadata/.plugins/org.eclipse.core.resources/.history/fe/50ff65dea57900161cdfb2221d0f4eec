@@ -1,0 +1,40 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj_assign1.exercise_2
+ * 
+ * @file_name Vehicle.java
+ */
+package ej222pj_assign1.exercise_2;
+
+/**
+ * @author Eric
+ *
+ * @date 13 sep 2016 : @time 13:03:22
+ *
+ */
+public class Passenger {
+	  private static final double TICKET_PRICE_NO_VEHICLE = 20.0;
+	  private double _ticketPrice;
+
+	  public Passenger() {
+	    this(PASSENGER_WITHOUT_VEHICLE_TICKET_PRICE);
+	  }
+
+	  public Passenger(double ticketPrice) {
+	    _ticketPrice = ticketPrice;
+	  }
+
+
+	  public double getPrice() {
+	    return _ticketPrice;
+	  }
+
+	  @Override
+	  public String toString() {
+	    return String.format(
+	      "Passenger details:\n\tTicket price: %.2f",
+	       _ticketPrice
+	    );
+	  }
+	}

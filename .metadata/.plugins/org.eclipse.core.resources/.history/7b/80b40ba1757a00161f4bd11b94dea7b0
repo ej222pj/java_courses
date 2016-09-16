@@ -1,0 +1,26 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj_assign1.exercise_2
+ * 
+ * @file_name Vehicle.java
+ */
+package ej222pj_assign1.exercise_2;
+
+/**
+ * @author Eric
+ *
+ * @date 13 sep 2016 : @time 13:03:22
+ *
+ */
+public class Bicycle extends Vehicle {
+	private final static double SPACE_REQUIRED = 0.2;
+	private final static double PASSENGER_COST = 0.0;
+	private final static double VEHICLE_COST = 40.0;
+	private final static int MAX_NUMBER_OF_PASSENGERS = 1;
+
+	public Bicycle(int numberOfPassengers) {
+		super(PASSENGER_COST, VEHICLE_COST,SPACE_REQUIRED, MAX_NUMBER_OF_PASSENGERS, numberOfPassengers);
+	}
+
+}
