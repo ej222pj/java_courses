@@ -1,0 +1,49 @@
+package ej222pj_assign2.exercise_3;
+
+import static org.junit.Assert.*;
+import ej222pj_assign2.exercise_1.ArrayIntStack;
+import org.junit.Test;
+
+public class ArrayIntStackTest {
+
+	@Test
+	public void testPeek() {
+		int numberOfInts = 5;
+		ArrayIntStack list = build(numberOfInts);
+		int topOfStack = list.peek();
+		assertEquals(numberOfInts, topOfStack);
+	}
+	
+	@Test
+	public void testPushFiveToTop() {
+		ArrayIntStack list = new ArrayIntStack();
+		list.push(10);
+		list.push(5);
+		int topOfStack = list.peek();
+		assertEquals(5, topOfStack);
+	}
+	
+	@Test
+	public void testPushFiveThousandInts() {
+		int numberOfInts = 5000;
+		ArrayIntStack list = build(numberOfInts);
+		
+		assertEquals(numberOfInts, list.size());
+	}
+
+	@Test
+	public void testPop() {
+		fail("Not yet implemented");
+	}
+	
+
+	public ArrayIntStack build(int size) {
+		ArrayIntStack list = new ArrayIntStack();
+		
+		for(int i = 0; i < size; i++) {
+			list.push(i);
+		}
+		
+		return list;
+	}
+}
