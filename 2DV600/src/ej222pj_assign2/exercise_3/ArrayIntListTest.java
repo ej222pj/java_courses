@@ -1,3 +1,10 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj_assign2.exercise_3
+ * 
+ * @file_name ArrayIntListTest.java
+ */
 package ej222pj_assign2.exercise_3;
 
 import static org.junit.Assert.*;
@@ -7,6 +14,13 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
+
+/**
+ * @author Eric
+ *
+ * @date 19 sep 2016 : @time 15:02:32
+ *
+ */
 
 public class ArrayIntListTest {
 	@Rule public TestName name = new TestName();

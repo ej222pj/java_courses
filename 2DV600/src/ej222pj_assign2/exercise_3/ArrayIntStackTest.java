@@ -1,3 +1,11 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj_assign2.exercise_3
+ * 
+ * @file_name ArrayIntStackTest.java
+ */
+
 package ej222pj_assign2.exercise_3;
 
 import static org.junit.Assert.*;
@@ -8,6 +16,13 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
+
+/**
+ * @author Eric
+ *
+ * @date 19 sep 2016 : @time 13:50:50
+ *
+ */
 
 public class ArrayIntStackTest {
 	@Rule public TestName name = new TestName();
@@ -21,6 +36,7 @@ public class ArrayIntStackTest {
 	public void tearDown(){
 		System.out.println("Done with test :  " + name.getMethodName());
 	}
+	
 	@Test
 	public void testPeekOnLast() {
 		int numberOfInts = 5;
