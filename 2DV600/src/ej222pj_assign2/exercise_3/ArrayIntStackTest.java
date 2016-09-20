@@ -2,10 +2,25 @@ package ej222pj_assign2.exercise_3;
 
 import static org.junit.Assert.*;
 import ej222pj_assign2.exercise_1.ArrayIntStack;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 
 public class ArrayIntStackTest {
-
+	@Rule public TestName name = new TestName();
+	
+	@Before
+	public void setUp(){
+		System.out.println("Started test   :  " + name.getMethodName());
+	}
+	
+	@After
+	public void tearDown(){
+		System.out.println("Done with test :  " + name.getMethodName());
+	}
 	@Test
 	public void testPeekOnLast() {
 		int numberOfInts = 5;

@@ -18,7 +18,6 @@
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="ej222pj_assign1.Card"/>
 <fullyQualifiedTypeName name="java.text.DecimalFormat"/>
-<fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="ej222pj_assign1.Card.Value"/>
 <fullyQualifiedTypeName name="da1031.AbstractIntCollection"/>
 <fullyQualifiedTypeName name="da1031.IntStack"/>
@@ -35,4 +34,8 @@
 <fullyQualifiedTypeName name="org.junit.Rule"/>
 <fullyQualifiedTypeName name="org.junit.rules.TestName"/>
 <fullyQualifiedTypeName name="ej222pj_assign2.exercise_1.ArrayIntStack"/>
+<fullyQualifiedTypeName name="ej222pj_assign2.exercise_4.Queue"/>
+<fullyQualifiedTypeName name="E"/>
+<fullyQualifiedTypeName name="ej222pj_assign2.exercise_4.GenericQueue.Node"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
 </qualifiedTypeNameHistroy>

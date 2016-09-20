@@ -25,7 +25,7 @@ public class ArrayIntListTest {
 	
 	@Test
 	public void testGetAtIndexOne() {
-		int recievedNumberAtIndexOne = testList.get(1);
+		int recievedNumberAtIndexOne = testList.get(100);
 		assertEquals(1, recievedNumberAtIndexOne);
 	}
 	
