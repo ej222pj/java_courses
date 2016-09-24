@@ -1,0 +1,22 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj_assign2.exercise_5
+ * 
+ * @file_name Word.java
+ */
+package ej222pj_assign2.exercise_5;
+
+/**
+ * @author Eric
+ *
+ * @date 20 sep 2016 : @time 22:38:16
+ *
+ */
+public class Word {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

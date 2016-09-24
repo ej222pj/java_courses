@@ -2,20 +2,24 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="list" key="selection"/>
+		<item value="BinarySearchTree" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="TreeWordSet"/>
+			<item value="BSTNode"/>
+			<item value="cp"/>
 			<item value="pop"/>
 			<item value="val"/>
 			<item value="queue"/>
 			<item value="sub"/>
 			<item value="testArr"/>
-			<item value="7"/>
 		</list>
 		<list key="replacehistory">
+			<item value="BinarySearchTree"/>
+			<item value="TreeWordSet"/>
 			<item value="list"/>
 			<item value="test"/>
 		</list>

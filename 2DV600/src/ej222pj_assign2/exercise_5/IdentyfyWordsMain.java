@@ -14,7 +14,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
 
 /**
  * @author Eric
@@ -24,17 +23,32 @@ import java.io.Writer;
  */
 public class IdentyfyWordsMain {
 
-	public static void main(String[] args) throws FileNotFoundException, IOException {
-		try(BufferedReader tempFileReader  = new BufferedReader(new FileReader(args[0].toString()))) {    
-	        File tempFileBuiltForUse = new File("word.txt");
-	        Writer changer = new BufferedWriter(new FileWriter(tempFileBuiltForUse));
-	        String lineContents;
-	        while ((lineContents = tempFileReader.readLine()) != null) {
-	            String lineByLine = lineContents.replaceAll("[0-9][a-zA-z]+", "");
-	            changer.write(lineByLine);
+	public static void main(String[] args) {
+		if(args[0] != null) {
+			try(BufferedReader bufferedReader  = new BufferedReader(new FileReader(args[0].toString()))) {    
+		        File newFileWithOnlyWords = new File("word.txt");
+		        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(newFileWithOnlyWords));
+		        String line;
+		        
+		        while ((line = bufferedReader.readLine()) != null) {
+		        	//Remove all numbers and letters if it's are the same word. And remove everything that is NOT a letter
+		            String lineByLine = line.replaceAll("\\d+[a-zA-Z]|[^a-zA-z ]+", "");
+		            bufferedWriter.write(lineByLine);
+		            bufferedWriter.newLine();
+		        }
+		        
+		        bufferedWriter.close();
+		        bufferedReader.close();
+			}     
+			catch (FileNotFoundException e) {
+	            e.printStackTrace();
+	        } 
+			catch (IOException e) {
+	            e.printStackTrace();
 	        }
-	        changer.close();
-	        tempFileReader.close();
+		}
+		else {
+			throw new IllegalArgumentException("Can't find any search path");
 		}
 	}
 }
