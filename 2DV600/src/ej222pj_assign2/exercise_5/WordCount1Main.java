@@ -24,30 +24,33 @@ public class WordCount1Main {
 	public static void main(String[] args) {
 		HashSet<Word> hashSet = new HashSet<>();
 		TreeSet<Word> treeSet = new TreeSet<>();
-		
-		try{
-			Scanner scanner = new Scanner(new File(args[0]));
-			//Reads every word
-			while(scanner.hasNext()){
-				Word word = new Word(scanner.next());
-				hashSet.add(word);
-				treeSet.add(word);
-				
+		if(args[0] != null) {
+			try {
+				Scanner scanner = new Scanner(new File(args[0]));
+				//Reads every word
+				while(scanner.hasNext()) {
+					Word word = new Word(scanner.next());
+					hashSet.add(word);
+					treeSet.add(word);
+				}
+				scanner.close();
 			}
-			scanner.close();
+			catch (FileNotFoundException e) {
+	            e.printStackTrace();
+	        } 
+			
+			//Print every word in alphabetical order
+			Iterator<Word> treeIterator = treeSet.iterator();
+			while(treeIterator.hasNext()) {
+				System.out.println(treeIterator.next());
+			}
+			
+			System.out.println("\nHashSet: " + hashSet.size());
+			System.out.println("Treeset: " + treeSet.size());
+			System.out.println("Would be 350 but i remove the S after 1960s, etc...");
 		}
-		catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } 
-		
-		//Print every word in alphabetical order
-		Iterator<Word> treeIterator = treeSet.iterator();
-		while(treeIterator.hasNext()){
-			System.out.println(treeIterator.next());
+		else {
+				throw new IllegalArgumentException("Can't find any search path");
 		}
-		
-		System.out.println("\nHashSet: " + hashSet.size());
-		System.out.println("Treeset: " + treeSet.size());
-		System.out.println("Would be 350 but i remove the S after 1960s, etc...");
 	}
 }

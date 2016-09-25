@@ -25,7 +25,7 @@ public interface QueueInterface {
 
 	    boolean contains(Object o);			 // return "true" if this queue contains the specified element
 	    
-	    Iterator iterator();                 // element iterator
+	    Iterator<?> iterator();                 // element iterator
 	
 }
 
