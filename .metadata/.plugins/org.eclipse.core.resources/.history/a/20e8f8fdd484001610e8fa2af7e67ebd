@@ -1,0 +1,20 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj
+ * 
+ * @file_name MyConnectedComponents.java
+ */
+package ej222pj;
+
+import graphs.ConnectedComponents;
+
+/**
+ * @author Eric
+ *
+ * @date 27 sep. 2016 : @time 19:07:56
+ *
+ */
+public class MyConnectedComponents<E> implements ConnectedComponents<E>{
+
+}

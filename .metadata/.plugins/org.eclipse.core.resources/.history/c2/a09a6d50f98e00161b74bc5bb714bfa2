@@ -1,0 +1,83 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj
+ * 
+ * @file_name MyConnectedComponents.java
+ */
+package ej222pj;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
+import graphs.ConnectedComponents;
+import graphs.DFS;
+import graphs.DirectedGraph;
+import graphs.Node;
+
+/**
+ * @author Eric
+ * @param <E>
+ *
+ * @date 27 sep. 2016 : @time 19:07:56
+ * 
+ * Two nodes a and b are directly connected if their exist an edge (a,b) 
+ * or an edge (b,a). Two nodes a and k are connected if there exist a sequence
+ * of nodes [a,b,c,d, ... j,k] such that [a,b], [b,c], [c,d], [d,e], ..., [j,k]
+ * are all directly connected.
+ * <p/>
+ * Problem: find a partitioning of the graph nodes such that two nodes belongs to the 
+ * same partitioning if and only if they are connected.
+ * </p>
+ * The result is a collection of node collections.
+ *
+ */
+public class MyConnectedComponents<E> implements ConnectedComponents<E>{
+
+	@Override
+	public Collection<Collection<Node<E>>> computeComponents(DirectedGraph<E> dg) {
+	    DFS<E> myDFS = new MyDFS<E>();
+	    Set<Node<E>> visitedHashSet = new HashSet<>();
+	    Set<Collection<Node<E>>> componentsHashSet = new HashSet<>();
+
+	    for (Node<E> node : dg) {
+	      // Create a "component" for each node
+	      Set<Node<E>> component  = new HashSet<>();
+	      if (!visitedHashSet.contains(node)) {
+	        // add the node to the component and mark it visited
+	    	  visitedHashSet.add(node);
+	        component.add(node);
+
+	        // get all nodes reachable from this node
+	        Collection<Node<E>> reachable = myDFS.dfs(dg, node);
+	        for (Node<E> r : reachable) {
+	          component.add(r);
+	          visitedHashSet.add(r); // do not visit every node with dfs, takes to much time
+	        }
+	      }
+
+	      for (Collection<Node<E>> c : componentsHashSet) {
+	        // check if 2 components share some elements,
+	        // in that case they need to be merged since they are
+	        // are connected but wasn't picked up by the dfs
+	        if (!Collections.disjoint(c, component)) {
+	          // Sometimes a dfs will pick up 2 "components" that might share elements,
+	          // i.e. 4 -> 5 and 6 -> 5
+	          // therefor we need to merge them and then clear the component so it is
+	          // empty for the empty check below
+	          c.addAll(component);
+	          component.clear();
+	        }
+	      }
+	      if (component.isEmpty() == false) {
+	    	  componentsHashSet.add(component);
+	      }
+	    }
+	    return componentsHashSet;
+	  }
+
+
+	}
+

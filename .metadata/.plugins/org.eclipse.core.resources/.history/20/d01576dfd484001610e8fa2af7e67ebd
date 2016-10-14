@@ -1,0 +1,20 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj
+ * 
+ * @file_name MyTransitiveClosure.java
+ */
+package ej222pj;
+
+import graphs.TransitiveClosure;
+
+/**
+ * @author Eric
+ *
+ * @date 27 sep. 2016 : @time 19:06:51
+ *
+ */
+public class MyTransitiveClosure implements TransitiveClosure<E>{
+
+}

@@ -1,0 +1,64 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj
+ * 
+ * @file_name MyGML.java
+ */
+package ej222pj;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+import graphs.DirectedGraph;
+import graphs.GML;
+import graphs.Node;
+
+/**
+ * @author Eric
+ * @param <E>
+ *
+ * @date 27 sep. 2016 : @time 19:01:40
+ *
+ */
+public class MyGML<E> extends GML<E> {
+	Map<Node<E>, Integer> map = new HashMap<>();
+	
+	public MyGML(DirectedGraph<E> dg) {
+		super(dg);
+	}
+
+	@Override
+	public String toGML() {
+		String output = "";
+		int id = 0;
+		
+		output+="graph\n[";
+		
+		for(E item : graph.allItems()) {
+			Node<E> node = graph.getNodeFor(item);
+			output+= "\n\tnode\n\t[\n";
+			output+= "\t\tid\t " + id + "\n";
+			output+= "\t\tlabel\t" + '"' + node +'"' + "\n\t]";	
+			map.put(node, id);
+			id++;
+		}
+		id = 0;
+		
+		for(E item : graph.allItems()) {
+			Node<E> node = graph.getNodeFor(item);
+			Iterator<Node<E>> successors = node.succsOf();
+			
+			while(successors.hasNext()) {
+				output+= "\n\tedge\n\t[\n";
+				output+= "\t\tsource " + id + " \n\t\ttarget " + map.get(successors.next()) + "\n\t]";
+			}			
+			id++;
+		}
+		output+="\n]";
+		
+		return output;
+	}
+
+}

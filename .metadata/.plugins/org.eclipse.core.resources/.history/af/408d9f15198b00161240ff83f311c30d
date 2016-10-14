@@ -1,0 +1,264 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj
+ * 
+ * @file_name MyGraph.java
+ */
+package ej222pj;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import graphs.DirectedGraph;
+import graphs.Node;
+
+/**
+ * @author Eric
+ * @param <E>
+ *
+ * @date 27 sep. 2016 : @time 18:25:51
+ *
+ */
+public class MyGraph<E> implements DirectedGraph<E> {
+	private Map<E, MyNode<E>> graph;
+	private Set<Node<E>> heads;
+	private Set<Node<E>> tails;
+	
+	public MyGraph() {
+		graph = new HashMap<E, MyNode<E>>();
+		heads = new HashSet<Node<E>>();
+		tails = new HashSet<Node<E>>();
+	}
+
+	@Override
+	public Node<E> addNodeFor(E item) {
+		if(item != null) { 
+			if(!graph.containsKey(item)) {
+				MyNode<E> newNode = new MyNode<E>(item);
+				
+				heads.add(newNode);
+				tails.add(newNode);
+				
+				graph.put(item, newNode);
+			}
+			return graph.get(item);
+		}
+		else {
+			throw new NullPointerException();
+		}
+	}
+
+	@Override
+	public Node<E> getNodeFor(E item) {
+		if(item != null) {
+			if(graph.containsKey(item)) {
+				return graph.get(item);
+			}
+			else {
+				throw new RuntimeException("Can't find any nodes!");
+			}
+		}
+		else {
+			throw new RuntimeException("Item is null!");
+		}
+	}
+
+	@Override 
+	public boolean addEdgeFor(E from, E to) {
+		if(from != null || to != null) {
+			MyNode<E> src = (MyNode<E>) addNodeFor(from);
+			MyNode<E> tgt = (MyNode<E>) addNodeFor(to);
+			
+			if(src.hasSucc(tgt)) {
+				return false;
+			}
+			else{
+				src.addSucc(tgt);
+				tgt.addPred(src);
+				
+				tails.remove(src);
+				heads.remove(tgt);
+				return true;
+			}
+		}
+		else {
+			throw new RuntimeException("From or To is Null");
+		}
+	}
+
+	@Override
+	public boolean containsNodeFor(E item) {
+		if(item != null) {
+			return graph.get(item) != null;
+		}
+		else {
+			throw new RuntimeException("Item is null!");
+		}
+	}
+
+	@Override
+	public int nodeCount() {
+		return graph.size();
+	}
+
+	@Override
+	public Iterator<Node<E>> iterator() {
+		HashMap<E, Node<E>> temp = new HashMap<E, Node<E>>();
+		
+		for(MyNode<E> node : graph.values()) {
+			temp.put(node.item(), (Node<E>)node);
+		}
+		return temp.values().iterator();
+	}
+
+	@Override
+	public Iterator<Node<E>> heads() {
+		return heads.iterator();
+	}
+
+	@Override
+	public int headCount() {
+		return heads.size();
+	}
+
+	@Override
+	public Iterator<Node<E>> tails() {
+		return tails.iterator();
+	}
+
+	@Override
+	public int tailCount() {
+		return tails.size();
+	}
+
+	@Override
+	public List<E> allItems() {
+		List<E> itemList = new ArrayList<>();
+		
+		for(MyNode<E> node : graph.values()) {
+			itemList.add(node.item());
+		}
+		return itemList;
+	}
+
+	@Override
+	public int edgeCount() {
+		int edges = 0;
+		
+		for(MyNode<E> node : graph.values()) {
+			edges += node.outDegree();
+		}
+		return edges;
+	}
+
+	@Override
+	public void removeNodeFor(E item) {
+		if(graph.get(item) != null || item != null){
+			MyNode<E> removeNode = graph.get(item);
+			
+			if(removeNode.isHead()) {
+				System.out.println("Removed Head: " + heads.remove(removeNode));
+			}
+			if(removeNode.isTail()) {
+				System.out.println("Removed Tail: " + tails.remove(removeNode));
+			}
+			
+			for(MyNode<E> node : graph.values()) {
+				if(node.hasPred(removeNode)) {
+					node.removePred(removeNode);
+					
+					if(node.isHead()) {
+						heads.add(node);
+					}	
+				}
+				if(node.hasSucc(removeNode)) {
+					node.removeSucc(removeNode);
+					
+					if(node.isTail()) {
+						tails.add(node);	
+					}
+				}
+			}
+			removeNode.disconnect();
+			graph.remove(item);		
+		}
+		else {
+			throw new RuntimeException("Item is null!");
+		}
+	}
+
+	@Override
+	public boolean containsEdgeFor(E from, E to) {
+		if(from == null || to == null) {
+			throw new RuntimeException("Item is null!");
+		}
+		if(containsNodeFor(from) && containsNodeFor(to)) {
+			return graph.get(from).hasSucc(graph.get(to));
+		}
+		else {
+			return false;
+		}
+	}
+
+	@Override
+	public boolean removeEdgeFor(E from, E to) {
+		if(from != null || to != null){
+			if(containsEdgeFor(from, to)) {
+				MyNode<E> src = graph.get(from);
+				MyNode<E> tgt = graph.get(to);
+				
+				src.removeSucc(tgt);
+				tgt.removePred(src);
+				
+				if(src.isTail()) {
+					tails.add(src);
+				}
+				if(src.isHead()) {
+					heads.add(src);
+				}
+				if(tgt.isTail()) {
+					tails.add(tgt);
+				}
+				if(tgt.isHead()) {
+					heads.add(tgt);
+				}
+				return true;
+			}
+			return false;
+		}
+		else {
+			throw new RuntimeException("Item is null!");
+		}
+	}
+	
+	@Override
+	public String toString(){
+		String output = "";
+		output+= "Graph Nodes:\n";
+		for(MyNode<E> node : graph.values()){
+			output+=  node + "\n\n";
+		}
+		output+= "Graph Edges:\n";
+		for(MyNode<E> node : graph.values()){
+			Iterator<Node<E>> iterator = node.predsOf();
+			output+= node + ".Predecessors:";	
+			while(iterator.hasNext()){
+				output+= iterator.next();
+			}
+			
+			Iterator<Node<E>> iterator2 = node.succsOf();
+			output+= "\n" + node + ".Successors  :";	
+			while(iterator2.hasNext()){
+				output+= iterator2.next();
+			}
+			output+="\n";
+		}
+		return output;
+	}
+}

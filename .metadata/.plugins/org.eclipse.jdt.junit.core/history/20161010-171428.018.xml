@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestAlgorithms" project="2DV600" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="graphs.test.TestAlgorithms" time="0.005">
+    <testcase name="testConnectedComponents" classname="graphs.test.TestAlgorithms" time="0.001"/>
+    <testcase name="testTransitiveClosure" classname="graphs.test.TestAlgorithms" time="0.005"/>
+  </testsuite>
+</testrun>

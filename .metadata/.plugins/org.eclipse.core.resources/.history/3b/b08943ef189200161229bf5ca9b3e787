@@ -1,0 +1,56 @@
+MyDFS:
+Time Complexity = O(2N + S) -> O(N + S) 
+	
+while (succ.hasNext()) { -> O(S)	
+	dfsRecursive(nodeList, hashSetVisited, root); -> O(N) 
+}
+Iterates over nodes and successors
+
+=======================
+
+MyBFS:
+Time Complexity = O(2N + S) -> O(N + S)
+
+while (setIterator.hasNext()) { -> O(N)
+	while (succIterator.hasNext()) { -> O(S)
+	}
+}		
+
+if (isEmpty == false) { -> O(1)
+	bfsRecursive(set, list,visited); -> O(N)
+}
+Iterates over hashset containing edge nodes from previous nodes
+
+=======================
+
+MyTransitiveClosure:
+Time Complexity = O(N(N+S)) -> O(N^2 + NS) 
+
+for(Iterator<Node<E>> iterator = dg.iterator(); iterator.hasNext();) { -> O(N) 
+	computeClosure.put(node, myDFS.dfs(dg, node)); -> O(N+S)
+}
+Do a DFS on each node.
+
+=======================
+
+MyConnectedComponents:
+Time Complexity = O(N^2 + NS + N^4)
+
+
+for (Node<E> node : dg) { -> O(N)
+	if (visitedHashSet.contains(node) == false) {
+		component.add(node); -> O(N)
+
+		Collection<Node<E>> reachable = myDFS.dfs(dg, node); -> O(N+S)
+		for (Node<E> reachableNode : reachable) { -> O(N)
+			component.add(reachableNode); -> O(N)
+		}
+	}
+
+	for (Collection<Node<E>> collectionNode : connectedComponentsHashSet) { -> O(N)
+		if (Collections.disjoint(collectionNode, component) == false) {
+			collectionNode.addAll(component); -> O(N)
+			component.clear(); -> O(N)
+		}
+	}
+}

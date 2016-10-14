@@ -1,0 +1,21 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj
+ * 
+ * @file_name MyNode.java
+ */
+package ej222pj;
+
+/**
+ * @author Eric
+ *
+ * @date 27 sep. 2016 : @time 18:26:30
+ *
+ */
+public class MyNode {
+
+	public static void main(String[] args) {
+
+	}
+}

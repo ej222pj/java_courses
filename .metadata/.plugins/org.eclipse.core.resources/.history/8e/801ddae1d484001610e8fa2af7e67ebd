@@ -1,0 +1,31 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj
+ * 
+ * @file_name MyTransitiveClosure.java
+ */
+package ej222pj;
+
+import java.util.Collection;
+import java.util.Map;
+
+import graphs.DirectedGraph;
+import graphs.Node;
+import graphs.TransitiveClosure;
+
+/**
+ * @author Eric
+ *
+ * @date 27 sep. 2016 : @time 19:06:51
+ *
+ */
+public abstract class MyTransitiveClosure implements TransitiveClosure<E>{
+
+	@Override
+	public Map<Node<E>, Collection<Node<E>>> computeClosure(DirectedGraph<E> dg) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

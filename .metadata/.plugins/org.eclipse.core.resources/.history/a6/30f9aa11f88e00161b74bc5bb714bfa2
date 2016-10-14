@@ -1,0 +1,31 @@
+/**
+ * @project_name 2DV600
+ *
+ * @package_name ej222pj
+ * 
+ * @file_name MyConnectedComponents.java
+ */
+package ej222pj;
+
+import java.util.Collection;
+
+import graphs.ConnectedComponents;
+import graphs.DirectedGraph;
+import graphs.Node;
+
+/**
+ * @author Eric
+ * @param <E>
+ *
+ * @date 27 sep. 2016 : @time 19:07:56
+ *
+ */
+public class MyConnectedComponents<E> implements ConnectedComponents<E>{
+
+	@Override
+	public Collection<Collection<Node<E>>> computeComponents(DirectedGraph<E> dg) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

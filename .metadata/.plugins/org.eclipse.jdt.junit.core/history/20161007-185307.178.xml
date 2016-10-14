@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestDFS" project="2DV600" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="graphs.test.TestDFS" time="0.003">
+    <testcase name="testPostOrder" classname="graphs.test.TestDFS" time="0.001"/>
+    <testcase name="testBFS" classname="graphs.test.TestDFS" time="0.0"/>
+    <testcase name="testDFS" classname="graphs.test.TestDFS" time="0.0"/>
+    <testcase name="testCyclic" classname="graphs.test.TestDFS" time="0.002"/>
+  </testsuite>
+</testrun>
