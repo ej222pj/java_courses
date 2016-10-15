@@ -56,7 +56,7 @@ public class MyConnectedComponents<E> implements ConnectedComponents<E> {
 	    	}
 
 	    	for (Collection<Node<E>> collectionNode : connectedComponentsHashSet) {
-	    		// disjoint - Returns true if the two specified collections
+	    		//disjoint - Returns true if the two specified collections
 	    		//			 have no elements in common.
 	    		if (Collections.disjoint(collectionNode, component) == false) {
 	    			collectionNode.addAll(component);

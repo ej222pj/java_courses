@@ -1,6 +1,6 @@
 MyDFS:
 Iterates over nodes and successors
-Time Complexity = O(N + S) 
+Time Complexity = O(2N + S) -> O(N + S) 
 	
 while (succ.hasNext()) { -> O(S)	
 	dfsRecursive(nodeList, hashSetVisited, root); -> O(N) 
@@ -17,7 +17,7 @@ while (setIterator.hasNext()) { -> O(N)
 	}
 }		
 
-if (isEmpty == false) { 
+if (isEmpty == false) { -> O(1)
 	bfsRecursive(set, list,visited); -> O(N)
 }
 
@@ -34,8 +34,8 @@ for(Iterator<Node<E>> iterator = dg.iterator(); iterator.hasNext();) { -> O(N)
 =======================
 
 MyConnectedComponents:
-DFS inside a loop, with a nestle loop
-Time Complexity = O(N(N+SN + (N(2N))) -> O(N^2 + NS + N^4)
+DFS inside a loop, with adds that takes O(N)
+Time Complexity = O(N(N+S + N(N(2N))) -> O(N^2 + NS + N^4)
 
 
 for (Node<E> node : dg) { -> O(N)

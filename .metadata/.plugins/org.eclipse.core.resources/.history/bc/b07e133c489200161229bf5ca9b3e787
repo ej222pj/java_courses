@@ -34,7 +34,7 @@ for(Iterator<Node<E>> iterator = dg.iterator(); iterator.hasNext();) { -> O(N)
 =======================
 
 MyConnectedComponents:
-DFS inside a loop, with a nestle loop
+DFS inside a loop, with adds that takes O(N)
 Time Complexity = O(N(N+SN + (N(2N))) -> O(N^2 + NS + N^4)
 
 
